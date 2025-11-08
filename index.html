@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welding Simulation Results</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #818181;
+            display: block;
+            font-style: italic;
+        }
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        .sidenav h4 {
+            color: green;
+            margin-left: 16px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        .main {
+            margin-left: 200px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .theory {
+            margin-bottom: 2em;
+        }
+        .video-container {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        video {
+            width: 600px;
+            height: auto;
+        }
+        .scenario {
+            margin-bottom: 2em;
+            border: 1px solid #ccc;
+            padding: 1em;
+        }
+        .graph-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1em;
+        }
+        .graph {
+            margin: 1em;
+            text-align: center;
+        }
+        .graph img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .graph p {
+            margin-top: 0.5em;
+            font-weight: bold;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1200px;
+        }
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .fire-divider {
+            height: 5px;
+            background: linear-gradient(to right, #ffcc00, #ff6600, #ff0000);
+            animation: fire-animation 2s ease-in-out infinite;
+            border-radius: 5px;
+            margin: 2em 0;
+        }
+
+        .bottom-text {
+            position: absolute;
+            bottom: 40px;
+            left: 16px;
+            font-size: 14px;
+            color: red;
+        }
+
+        @keyframes fire-animation {
+            0% {
+                background: linear-gradient(to right, #ffcc00, #ff6600, #ff0000);
+            }
+            50% {
+                background: linear-gradient(to right, #ff6600, #ff0000, #ffcc00);
+            }
+            100% {
+                background: linear-gradient(to right, #ff0000, #ffcc00, #ff6600);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidenav">
+        <a href="#results">Contents</a>
+        <h4 style="color: green; margin-left: 16px;">Fusion Arc Welding</h4>
+        <a href="#tig-gas">TIG with Gas</a>
+        <a href="#tig-no-gas">TIG without Gas</a>
+        <a href="#electrode-gas">Electrode with Gas</a>
+        <a href="#electrode-no-gas">Electrode without Gas</a>
+        <a href="#ebw">EBW</a>
+        <a href="#lbw">LBW</a>
+        <a href="#saw">SAW</a>
+        <a href="#paw">PAW</a>
+        <h4 style="color: green; margin-left: 16px;">Defect Analysis</h4>
+        <a href="#welding-defect-analysis">Welding Defect Analysis</a>
+
+        <div class="bottom-text">
+            <p style="margin: 0; font-weight: bold; color: red;">Aayush Pratap Singh</p>
+            <p style="margin: 0; font-weight: bold; color: red;">NIT Bhopal</p>
+            <p style="margin: 0; font-weight: bold; color: red;">2023-2027</p>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1>Welding Simulation Results</h1>
+
+        <div class="theory">
+            <h2>Theory and Analysis</h2>
+            <p>
+                [This is a placeholder for the theory and analysis of the welding simulations. You can edit this section to add your own text.]
+            </p>
+        </div>
+
+        <div id="results">
+            <h2>Simulation Results</h2>
+
+            <div class="scenario" id="tig-gas">
+                <h3>TIG with Gas</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="tig-ele/output_tig_gas/tig_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/1_detailed_isotherms_final.png" alt="Detailed Isotherms" onclick="openModal(this)">
+                        <p>Detailed Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/10_3d_peak_temperature_final.png" alt="3d Peak Temperature" onclick="openModal(this)">
+                        <p>3D Peak Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/11_3d_isotherm_projections_final.png" alt="3d Isotherm Projections" onclick="openModal(this)">
+                        <p>3D Isotherm Projections</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/12_3d_zones_scatter_final.png" alt="3d Zones Scatter" onclick="openModal(this)">
+                        <p>3D Zones Scatter</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/13_3d_temperature_gradient_final.png" alt="3d Temperature Gradient" onclick="openModal(this)">
+                        <p>3D Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/16_final_temperature_final.png" alt="Final Temperature" onclick="openModal(this)">
+                        <p>Final Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/17_peak_temperature_vs_position_final.png" alt="Peak Temperature Vs Position" onclick="openModal(this)">
+                        <p>Peak Temperature Vs Position</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/2_isotherm_only_final.png" alt="Isotherm Only" onclick="openModal(this)">
+                        <p>Isotherm Only</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/3_color_coded_isotherms_final.png" alt="Color Coded Isotherms" onclick="openModal(this)">
+                        <p>Color Coded Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/4_temperature_gradient_final.png" alt="Temperature Gradient" onclick="openModal(this)">
+                        <p>Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/5_fusion_haz_zones_final.png" alt="Fusion Haz Zones" onclick="openModal(this)">
+                        <p>Fusion Haz Zones</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/6_centerline_temperature_final.png" alt="Centerline Temperature" onclick="openModal(this)">
+                        <p>Centerline Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/7_transverse_temperature_final.png" alt="Transverse Temperature" onclick="openModal(this)">
+                        <p>Transverse Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_gas/9_temperature_celsius_final.png" alt="Temperature Celsius" onclick="openModal(this)">
+                        <p>Temperature Celsius</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="tig-no-gas">
+                <h3>TIG without Gas</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="tig-ele/output_tig_no_gas/tig_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/1_detailed_isotherms_final.png" alt="Detailed Isotherms" onclick="openModal(this)">
+                        <p>Detailed Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/10_3d_peak_temperature_final.png" alt="3d Peak Temperature" onclick="openModal(this)">
+                        <p>3D Peak Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/11_3d_isotherm_projections_final.png" alt="3d Isotherm Projections" onclick="openModal(this)">
+                        <p>3D Isotherm Projections</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/12_3d_zones_scatter_final.png" alt="3d Zones Scatter" onclick="openModal(this)">
+                        <p>3D Zones Scatter</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/13_3d_temperature_gradient_final.png" alt="3d Temperature Gradient" onclick="openModal(this)">
+                        <p>3D Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/16_final_temperature_final.png" alt="Final Temperature" onclick="openModal(this)">
+                        <p>Final Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/17_peak_temperature_vs_position_final.png" alt="Peak Temperature Vs Position" onclick="openModal(this)">
+                        <p>Peak Temperature Vs Position</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/2_isotherm_only_final.png" alt="Isotherm Only" onclick="openModal(this)">
+                        <p>Isotherm Only</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/3_color_coded_isotherms_final.png" alt="Color Coded Isotherms" onclick="openModal(this)">
+                        <p>Color Coded Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/4_temperature_gradient_final.png" alt="Temperature Gradient" onclick="openModal(this)">
+                        <p>Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/5_fusion_haz_zones_final.png" alt="Fusion Haz Zones" onclick="openModal(this)">
+                        <p>Fusion Haz Zones</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/6_centerline_temperature_final.png" alt="Centerline Temperature" onclick="openModal(this)">
+                        <p>Centerline Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/7_transverse_temperature_final.png" alt="Transverse Temperature" onclick="openModal(this)">
+                        <p>Transverse Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_tig_no_gas/9_temperature_celsius_final.png" alt="Temperature Celsius" onclick="openModal(this)">
+                        <p>Temperature Celsius</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="electrode-gas">
+                <h3>Electrode with Gas</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="tig-ele/output_electrode_gas/electrode_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/1_detailed_isotherms_final.png" alt="Detailed Isotherms" onclick="openModal(this)">
+                        <p>Detailed Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/10_3d_peak_temperature_final.png" alt="3d Peak Temperature" onclick="openModal(this)">
+                        <p>3D Peak Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/11_3d_isotherm_projections_final.png" alt="3d Isotherm Projections" onclick="openModal(this)">
+                        <p>3D Isotherm Projections</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/12_3d_zones_scatter_final.png" alt="3d Zones Scatter" onclick="openModal(this)">
+                        <p>3D Zones Scatter</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/13_3d_temperature_gradient_final.png" alt="3d Temperature Gradient" onclick="openModal(this)">
+                        <p>3D Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/16_final_temperature_final.png" alt="Final Temperature" onclick="openModal(this)">
+                        <p>Final Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/17_peak_temperature_vs_position_final.png" alt="Peak Temperature Vs Position" onclick="openModal(this)">
+                        <p>Peak Temperature Vs Position</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/2_isotherm_only_final.png" alt="Isotherm Only" onclick="openModal(this)">
+                        <p>Isotherm Only</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/3_color_coded_isotherms_final.png" alt="Color Coded Isotherms" onclick="openModal(this)">
+                        <p>Color Coded Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/4_temperature_gradient_final.png" alt="Temperature Gradient" onclick="openModal(this)">
+                        <p>Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/5_fusion_haz_zones_final.png" alt="Fusion Haz Zones" onclick="openModal(this)">
+                        <p>Fusion Haz Zones</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/6_centerline_temperature_final.png" alt="Centerline Temperature" onclick="openModal(this)">
+                        <p>Centerline Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/7_transverse_temperature_final.png" alt="Transverse Temperature" onclick="openModal(this)">
+                        <p>Transverse Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_gas/9_temperature_celsius_final.png" alt="Temperature Celsius" onclick="openModal(this)">
+                        <p>Temperature Celsius</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="electrode-no-gas">
+                <h3>Electrode without Gas</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="tig-ele/output_electrode_no_gas/electrode_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/1_detailed_isotherms_final.png" alt="Detailed Isotherms" onclick="openModal(this)">
+                        <p>Detailed Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/10_3d_peak_temperature_final.png" alt="3d Peak Temperature" onclick="openModal(this)">
+                        <p>3D Peak Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/11_3d_isotherm_projections_final.png" alt="3d Isotherm Projections" onclick="openModal(this)">
+                        <p>3D Isotherm Projections</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/12_3d_zones_scatter_final.png" alt="3d Zones Scatter" onclick="openModal(this)">
+                        <p>3D Zones Scatter</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/13_3d_temperature_gradient_final.png" alt="3d Temperature Gradient" onclick="openModal(this)">
+                        <p>3D Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/16_final_temperature_final.png" alt="Final Temperature" onclick="openModal(this)">
+                        <p>Final Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/17_peak_temperature_vs_position_final.png" alt="Peak Temperature Vs Position" onclick="openModal(this)">
+                        <p>Peak Temperature Vs Position</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/2_isotherm_only_final.png" alt="Isotherm Only" onclick="openModal(this)">
+                        <p>Isotherm Only</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/3_color_coded_isotherms_final.png" alt="Color Coded Isotherms" onclick="openModal(this)">
+                        <p>Color Coded Isotherms</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/4_temperature_gradient_final.png" alt="Temperature Gradient" onclick="openModal(this)">
+                        <p>Temperature Gradient</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/5_fusion_haz_zones_final.png" alt="Fusion Haz Zones" onclick="openModal(this)">
+                        <p>Fusion Haz Zones</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/6_centerline_temperature_final.png" alt="Centerline Temperature" onclick="openModal(this)">
+                        <p>Centerline Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/7_transverse_temperature_final.png" alt="Transverse Temperature" onclick="openModal(this)">
+                        <p>Transverse Temperature</p>
+                    </div>
+                    <div class="graph">
+                        <img src="tig-ele/output_electrode_no_gas/9_temperature_celsius_final.png" alt="Temperature Celsius" onclick="openModal(this)">
+                        <p>Temperature Celsius</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="ebw">
+                <h3>Electron Beam Welding (EBW)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="ebw/ebw_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="ebw/output/1_plot_final.png" alt="1 Plot Final" onclick="openModal(this)">
+                        <p>1 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/10_3d_plot_final.png" alt="10 3d Plot Final" onclick="openModal(this)">
+                        <p>10 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/10_3d_plot_snapshot_12.02s.png" alt="10 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>10 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/11_3d_plot_final.png" alt="11 3d Plot Final" onclick="openModal(this)">
+                        <p>11 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/11_3d_plot_snapshot_12.02s.png" alt="11 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>11 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/12_3d_plot_final.png" alt="12 3d Plot Final" onclick="openModal(this)">
+                        <p>12 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/13_3d_plot_final.png" alt="13 3d Plot Final" onclick="openModal(this)">
+                        <p>13 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/13_3d_plot_snapshot_12.02s.png" alt="13 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>13 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/16_thermal_cycle_final.png" alt="16 Thermal Cycle Final" onclick="openModal(this)">
+                        <p>16 Thermal Cycle Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/17_thermal_cycle_final.png" alt="17 Thermal Cycle Final" onclick="openModal(this)">
+                        <p>17 Thermal Cycle Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/2_plot_final.png" alt="2 Plot Final" onclick="openModal(this)">
+                        <p>2 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/3_plot_final.png" alt="3 Plot Final" onclick="openModal(this)">
+                        <p>3 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/4_plot_final.png" alt="4 Plot Final" onclick="openModal(this)">
+                        <p>4 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/5_plot_final.png" alt="5 Plot Final" onclick="openModal(this)">
+                        <p>5 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/6_plot_final.png" alt="6 Plot Final" onclick="openModal(this)">
+                        <p>6 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="ebw/output/7_plot_final.png" alt="7 Plot Final" onclick="openModal(this)">
+                        <p>7 Plot Final</p>
+                    </div>
+
+                    <div class="graph">
+                        <img src="ebw/output/9_plot_final.png" alt="9 Plot Final" onclick="openModal(this)">
+                        <p>9 Plot Final</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="lbw">
+                <h3>Laser Beam Welding (LBW)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="lbw/output/lbw_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="lbw/output/1_plot_snapshot_12.02s.png" alt="1 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>1 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/10_3d_plot_snapshot_12.02s.png" alt="10 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>10 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/10_3d_plot.png" alt="10 3d Plot" onclick="openModal(this)">
+                        <p>10 3d Plot</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/11_3d_plot_snapshot_12.02s.png" alt="11 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>11 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/11_3d_plot.png" alt="11 3d Plot" onclick="openModal(this)">
+                        <p>11 3d Plot</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/12_3d_plot_snapshot_12.02s.png" alt="12 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>12 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/13_3d_plot_snapshot_12.02s.png" alt="13 3d Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>13 3d Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/13_3d_plot.png" alt="13 3d Plot" onclick="openModal(this)">
+                        <p>13 3d Plot</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/16_thermal_cycle_snapshot_12.02s.png" alt="16 Thermal Cycle Snapshot 12.02s" onclick="openModal(this)">
+                        <p>16 Thermal Cycle Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/17_thermal_cycle_snapshot_12.02s.png" alt="17 Thermal Cycle Snapshot 12.02s" onclick="openModal(this)">
+                        <p>17 Thermal Cycle Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/2_plot_snapshot_12.02s.png" alt="2 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>2 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/3_plot_snapshot_12.02s.png" alt="3 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>3 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/4_plot_snapshot_12.02s.png" alt="4 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>4 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/6_plot_snapshot_12.02s.png" alt="6 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>6 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/7_plot_snapshot_12.02s.png" alt="7 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>7 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="lbw/output/9_plot_snapshot_12.02s.png" alt="9 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>9 Plot Snapshot 12.02s</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="saw">
+                <h3>Submerged Arc Welding (SAW)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="saw/output/saw_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="saw/output/1_plot_final.png" alt="1 Plot Final" onclick="openModal(this)">
+                        <p>1 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/10_3d_plot_final.png" alt="10 3d Plot Final" onclick="openModal(this)">
+                        <p>10 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/11_3d_plot_final.png" alt="11 3d Plot Final" onclick="openModal(this)">
+                        <p>11 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/12_3d_plot_final.png" alt="12 3d Plot Final" onclick="openModal(this)">
+                        <p>12 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/13_3d_plot_final.png" alt="13 3d Plot Final" onclick="openModal(this)">
+                        <p>13 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/16_thermal_cycle_final.png" alt="16 Thermal Cycle Final" onclick="openModal(this)">
+                        <p>16 Thermal Cycle Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/17_thermal_cycle_final.png" alt="17 Thermal Cycle Final" onclick="openModal(this)">
+                        <p>17 Thermal Cycle Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/6_plot_snapshot_12.02s.png" alt="6 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>6 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/7_plot_final.png" alt="7 Plot Final" onclick="openModal(this)">
+                        <p>7 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/7_plot_snapshot_12.02s.png" alt="7 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>7 Plot Snapshot 12.02s</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/enhanced_3d_views_final.png" alt="Enhanced 3d Views Final" onclick="openModal(this)">
+                        <p>Enhanced 3d Views Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="saw/output/enhanced_isotherms_final.png" alt="Enhanced Isotherms Final" onclick="openModal(this)">
+                        <p>Enhanced Isotherms Final</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="paw">
+                <h3>Plasma Arc Welding (PAW)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="paw/output/paw_simulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="paw/output/1_plot_final.png" alt="1 Plot Final" onclick="openModal(this)">
+                        <p>1 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/10_3d_plot_final.png" alt="10 3d Plot Final" onclick="openModal(this)">
+                        <p>10 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/11_3d_plot_final.png" alt="11 3d Plot Final" onclick="openModal(this)">
+                        <p>11 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/12_3d_plot_final.png" alt="12 3d Plot Final" onclick="openModal(this)">
+                        <p>12 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/13_3d_plot_final.png" alt="13 3d Plot Final" onclick="openModal(this)">
+                        <p>13 3d Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/16_thermal_cycle_final.png" alt="16 Thermal Cycle Final" onclick="openModal(this)">
+                        <p>16 Thermal Cycle Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/17_thermal_cycle_final.png" alt="17 Thermal Cycle Final" onclick="openModal(this)">
+                        <p>17 Thermal Cycle Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/2_plot_final.png" alt="2 Plot Final" onclick="openModal(this)">
+                        <p>2 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/3_plot_final.png" alt="3 Plot Final" onclick="openModal(this)">
+                        <p>3 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/4_plot_final.png" alt="4 Plot Final" onclick="openModal(this)">
+                        <p>4 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/5_plot_final.png" alt="5 Plot Final" onclick="openModal(this)">
+                        <p>5 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/6_plot_final.png" alt="6 Plot Final" onclick="openModal(this)">
+                        <p>6 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/7_plot_final.png" alt="7 Plot Final" onclick="openModal(this)">
+                        <p>7 Plot Final</p>
+                    </div>
+                    <div class="graph">
+                        <img src="paw/output/9_plot_snapshot_12.02s.png" alt="9 Plot Snapshot 12.02s" onclick="openModal(this)">
+                        <p>9 Plot Snapshot 12.02s</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fire-divider"></div>
+            <div class="scenario" id="welding-defect-analysis">
+                <h3>Welding Defect Analysis</h3>
+                <p>
+                    AI-powered welding defect detection system that analyzes weld quality and identifies defects using computer vision and machine learning techniques.
+                </p>
+                <div class="graph-container">
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-10-15.png" alt="Bad Weld Detection - 67%" onclick="openModal(this)">
+                        <p>Bad Weld Detection - 67%</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-11-12.png" alt="Defect Region Detection" onclick="openModal(this)">
+                        <p>Defect Region Detection</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-13-01.png" alt="Good Welding Detection - 91%" onclick="openModal(this)">
+                        <p>Good Welding Detection - 91%</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-13-34.png" alt="Multiple Weld Quality Analysis - 62%" onclick="openModal(this)">
+                        <p>Multiple Weld Quality Analysis - 62%</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-14-04.png" alt="Bad Welding Detection - 82%" onclick="openModal(this)">
+                        <p>Bad Welding Detection - 82%</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-14-40.png" alt="Multi-Point Defect Analysis" onclick="openModal(this)">
+                        <p>Multi-Point Defect Analysis</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-15-11.png" alt="Good Welding Detection - 88%" onclick="openModal(this)">
+                        <p>Good Welding Detection - 88%</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-16-58.png" alt="Good Welding Detection - 84%" onclick="openModal(this)">
+                        <p>Good Welding Detection - 84%</p>
+                    </div>
+                    <div class="graph">
+                        <img src="welding-defect/Screenshot from 2025-11-08 01-17-32.png" alt="Bad Welding Detection - 65%" onclick="openModal(this)">
+                        <p>Bad Welding Detection - 65%</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div class="modal-caption" id="caption"></div>
+    </div>
+
+    <script>
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("modalImg");
+        var captionText = document.getElementById("caption");
+
+        function openModal(imgElement) {
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            captionText.innerHTML = imgElement.alt;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
