@@ -152,11 +152,166 @@
                 background: linear-gradient(to right, #ff0000, #ffcc00, #ff6600);
             }
         }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+            background-color: #111;
+            color: white;
+            border: 2px solid green;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            /* Show menu toggle button on mobile */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Hide sidebar by default on mobile */
+            .sidenav {
+                width: 0;
+                transition: width 0.3s;
+                overflow: hidden;
+            }
+
+            /* Show sidebar when active */
+            .sidenav.active {
+                width: 200px;
+            }
+
+            /* Adjust main content for mobile */
+            .main {
+                margin-left: 0;
+                padding: 60px 10px 10px 10px;
+            }
+
+            /* Make headings smaller on mobile */
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            /* Stack graphs vertically on mobile */
+            .graph-container {
+                flex-direction: column;
+            }
+
+            .graph {
+                width: 100% !important;
+                margin: 10px 0;
+            }
+
+            /* Make images responsive */
+            .graph img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Adjust video container for mobile */
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Make modal images fit mobile screen */
+            .modal-content {
+                max-width: 95%;
+                max-height: 90vh;
+            }
+
+            /* Adjust theory section for mobile */
+            .theory {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .theory h4 {
+                font-size: 16px;
+            }
+
+            .theory ul, .theory p {
+                font-size: 14px;
+            }
+
+            /* Adjust bottom text */
+            .bottom-text {
+                font-size: 12px;
+                bottom: 10px;
+            }
+
+            /* Make CNN diagrams responsive */
+            .cnn-diagrams img {
+                max-width: 100% !important;
+            }
+
+            .cnn-diagrams pre {
+                font-size: 10px;
+                overflow-x: auto;
+            }
+        }
+
+        /* Tablet Responsive Styles */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .sidenav {
+                width: 180px;
+            }
+
+            .main {
+                margin-left: 180px;
+            }
+
+            .graph {
+                width: 48%;
+            }
+        }
+
+        /* Small mobile devices */
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .theory h4 {
+                font-size: 14px;
+            }
+
+            .menu-toggle {
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="sidenav">
+    <!-- Mobile Menu Toggle Button -->
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="sidenav" id="mySidenav">
         <a href="#results">Contents</a>
         <h4 style="color: green; margin-left: 16px;">Fusion Arc Welding</h4>
         <a href="#tig-gas">TIG with Gas</a>
@@ -1072,6 +1227,36 @@ Typical Architecture Layers:
         function closeModal() {
             modal.style.display = "none";
         }
+
+        // Mobile menu toggle function
+        function toggleMenu() {
+            var sidenav = document.getElementById("mySidenav");
+            sidenav.classList.toggle("active");
+        }
+
+        // Close menu when clicking on a link (mobile)
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.sidenav a');
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        var sidenav = document.getElementById("mySidenav");
+                        sidenav.classList.remove("active");
+                    }
+                });
+            });
+
+            // Close menu when clicking outside on mobile
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    var sidenav = document.getElementById("mySidenav");
+                    var menuBtn = document.querySelector('.menu-toggle');
+                    if (!sidenav.contains(event.target) && !menuBtn.contains(event.target)) {
+                        sidenav.classList.remove("active");
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
