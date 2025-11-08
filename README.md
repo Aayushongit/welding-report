@@ -178,7 +178,6 @@ The project includes an advanced **AI-powered welding defect detection system** 
 - **Multiple Analysis Outputs:**
   - Temperature isotherms
   - HAZ mapping
-  - Weld width analysis
   - Temperature gradients
   - Thermal cycles
   - Cooling rates
@@ -279,9 +278,6 @@ Visit the live demo: [https://aayushongit.github.io/welding-report/](https://aay
 
 #### Cooling Rates
 ![Cooling Rates](output/15_cooling_rates.png)
-
-#### Weld Width Analysis
-![Weld Width](output/8_weld_width.png)
 
 ---
 
