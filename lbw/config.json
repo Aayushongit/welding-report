@@ -1,0 +1,37 @@
+{
+    "simulation_parameters": {
+        "Lx": 0.15,
+        "Ly": 0.1,
+        "thickness": 0.006,
+        "nx": 151,
+        "ny": 101,
+        "Q_beam": 2000.0,
+        "eta_lbw": 0.8,
+        "R_lbw": 0.0005,
+        "H_lbw": 0.004,
+        "v_weld": 0.01,
+        "y_start": -0.05,
+        "x_arc": 0.075,
+        "T0": 293.0,
+        "h_conv": 20.0,
+        "dt": 0.02,
+        "theta": 0.5,
+        "snapshot_time": 12.0
+    },
+    "material_1": {
+        "name": "Mild Steel",
+        "rho": 7850.0,
+        "cp": 500.0,
+        "k": 45.0,
+        "T_melt": 1811.0,
+        "T_crit": 1273.0
+    },
+    "material_2": {
+        "name": "Stainless Steel 304",
+        "rho": 7900.0,
+        "cp": 500.0,
+        "k": 16.3,
+        "T_melt": 1723.0,
+        "T_crit": 1273.0
+    }
+}

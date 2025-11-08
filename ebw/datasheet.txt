@@ -1,0 +1,39 @@
+Simulating Electron Beam Welding (EBW).
+Grid: 151x101, Time steps: 600
+Materials: Mild Steel | Stainless Steel 304
+Power: 2700W, Speed: 10.0mm/s (along y-axis)
+Peak Temp: 3870.2K
+Fusion Area: 385.00mm², HAZ: 194.00mm²
+
+--- Simulation Parameters ---
+Lx: 0.15
+Ly: 0.10
+thickness: 0.006
+nx: 151
+ny: 101
+Q_beam: 3000.0
+eta_ebw: 0.9
+R_ebw: 0.001
+H_ebw: 0.006
+v_weld: 0.01
+x_start: 0.075
+y_arc: -0.05
+T0: 293.0
+h_conv: 20.0
+dt: 0.02
+theta: 0.5
+snapshot_time: 12.0
+
+--- Material 1: Mild Steel ---
+rho: 7850.0
+cp: 500.0
+k: 45.0
+T_melt: 1811.0
+T_crit: 1273.0
+
+--- Material 2: Stainless Steel 304 ---
+rho: 7900.0
+cp: 500.0
+k: 16.3
+T_melt: 1723.0
+T_crit: 1273.0

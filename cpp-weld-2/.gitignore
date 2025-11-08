@@ -1,0 +1,30 @@
+# Build artifacts
+build/
+*.o
+*.out
+welding_sim
+*.exe
+
+# Output files
+output/
+results/
+*.csv
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log

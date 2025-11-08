@@ -1,0 +1,48 @@
+{
+  "simulation_parameters": {
+    "Lx": 0.15,
+    "Ly": 0.08,
+    "thickness": 0.005,
+    "nx": 200,
+    "ny": 120,
+    "Q_power": 25000,
+    "eta_erw": 0.70,
+    "R_contact_init": 5e-7,
+    "contact_width": 0.005,
+    "v_weld": 0.020,
+    "x_start": 0.075,
+    "y_start": -0.035,
+    "frequency": 400000,
+    "current_density": 8e6,
+    "T0": 300,
+    "h_conv": 50,
+    "dt": 0.01,
+    "theta": 0.6,
+    "snapshot_time": 3.0
+  },
+  "material_pipe": {
+    "name": "Carbon Steel (API 5L)",
+    "rho": 7850,
+    "cp": 500,
+    "k": 45,
+    "sigma_electrical": 4.5e6,
+    "T_melt": 1811,
+    "T_crit": 1000,
+    "alpha_thermal": 1.2e-5,
+    "hardness_ref": 2e9,
+    "resistivity": 1.7e-7
+  },
+  "contact_model": {
+    "R_c_base": 1e-6,
+    "pressure_ref": 5e6,
+    "temp_melt_factor": 0.1,
+    "asperity_reduction": 0.8
+  },
+  "phase_kinetics": {
+    "Ms_martensite": 673,
+    "alpha_KM": 0.011,
+    "K0_JMAK": 1e-3,
+    "n_JMAK": 2.5,
+    "Ea_JMAK": 200000
+  }
+}
