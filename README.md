@@ -40,63 +40,92 @@ Additionally, the project features a **computer vision-based welding defect dete
 ### 1. TIG Welding (Tungsten Inert Gas)
 
 #### TIG with Gas
-- **Video:** [tig-ele/output_tig_gas/tig_simulation.mp4](tig-ele/output_tig_gas/tig_simulation.mp4)
 - **Applications:** Aerospace, automotive, precision welding
 - **Key Features:** High precision, clean welds, excellent control
+
+https://github.com/user-attachments/assets/tig-gas-simulation.mp4
+
+<video width="100%" controls>
+  <source src="tig-ele/output_tig_gas/tig_simulation.mp4" type="video/mp4">
+</video>
 
 ![TIG Gas - Temperature Distribution](output/1_detailed_isotherms.png)
 
 #### TIG without Gas
-- **Video:** [tig-ele/output_tig_no_gas/tig_simulation.mp4](tig-ele/output_tig_no_gas/tig_simulation.mp4)
 - **Applications:** Emergency repairs, outdoor welding
 - **Key Features:** Portable, no gas dependency
+
+<video width="100%" controls>
+  <source src="tig-ele/output_tig_no_gas/tig_simulation.mp4" type="video/mp4">
+</video>
 
 ### 2. Electrode Welding (SMAW - Shielded Metal Arc Welding)
 
 #### Electrode with Gas
-- **Video:** [tig-ele/output_electrode_gas/electrode_simulation.mp4](tig-ele/output_electrode_gas/electrode_simulation.mp4)
 - **Applications:** Heavy construction, shipbuilding, pipeline welding
 - **Key Features:** Versatile, works in all positions
+
+<video width="100%" controls>
+  <source src="tig-ele/output_electrode_gas/electrode_simulation.mp4" type="video/mp4">
+</video>
 
 ![Electrode - Fusion HAZ Zones](output/5_fusion_haz_zones.png)
 
 #### Electrode without Gas
-- **Video:** [tig-ele/output_electrode_no_gas/electrode_simulation.mp4](tig-ele/output_electrode_no_gas/electrode_simulation.mp4)
 - **Applications:** Field repairs, outdoor construction
 - **Key Features:** Weather-resistant, wind-tolerant
 
+<video width="100%" controls>
+  <source src="tig-ele/output_electrode_no_gas/electrode_simulation.mp4" type="video/mp4">
+</video>
+
 ### 3. EBW (Electron Beam Welding)
-- **Video:** [ebw/ebw_simulation.mp4](ebw/ebw_simulation.mp4)
 - **Applications:** Aerospace, nuclear, medical devices
 - **Key Features:** Deep penetration, narrow HAZ, vacuum environment
+
+<video width="100%" controls>
+  <source src="ebw/ebw_simulation.mp4" type="video/mp4">
+</video>
 
 ![EBW - 3D Temperature Gradient](ebw/output/13_3d_plot_final.png)
 
 ### 4. LBW (Laser Beam Welding)
-- **Video:** [lbw/output/lbw_simulation.mp4](lbw/output/lbw_simulation.mp4)
 - **Applications:** Automotive, electronics, precision manufacturing
 - **Key Features:** High speed, minimal distortion, automation-friendly
+
+<video width="100%" controls>
+  <source src="lbw/output/lbw_simulation.mp4" type="video/mp4">
+</video>
 
 ![LBW - Thermal Cycle](lbw/output/16_thermal_cycle_snapshot_12.02s.png)
 
 ### 5. SAW (Submerged Arc Welding)
-- **Video:** [saw/output/saw_simulation.mp4](saw/output/saw_simulation.mp4)
 - **Applications:** Shipbuilding, pressure vessels, structural steel
 - **Key Features:** High deposition rate, deep penetration, flux protection
+
+<video width="100%" controls>
+  <source src="saw/output/saw_simulation.mp4" type="video/mp4">
+</video>
 
 ![SAW - Enhanced 3D Views](saw/output/enhanced_3d_views_final.png)
 
 ### 6. PAW (Plasma Arc Welding)
-- **Video:** [paw/output/paw_simulation.mp4](paw/output/paw_simulation.mp4)
 - **Applications:** Aerospace, nuclear, high-precision applications
 - **Key Features:** Keyhole mode, excellent control, deep penetration
+
+<video width="100%" controls>
+  <source src="paw/output/paw_simulation.mp4" type="video/mp4">
+</video>
 
 ![PAW - 3D Temperature Plot](paw/output/13_3d_plot_final.png)
 
 ### 7. ERW (Electric Resistance Welding)
-- **Video:** [ERW/erw_simulation.mp4](ERW/erw_simulation.mp4)
 - **Applications:** Pipe manufacturing, automotive, tube mills
 - **Key Features:** High-speed production, continuous seam welding
+
+<video width="100%" controls>
+  <source src="ERW/erw_simulation.mp4" type="video/mp4">
+</video>
 
 ![ERW - Thermal Cycle Final](ERW/output/17_thermal_cycle_final.png)
 
