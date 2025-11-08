@@ -946,9 +946,70 @@
             <div class="fire-divider"></div>
             <div class="scenario" id="welding-defect-analysis">
                 <h3>Welding Defect Analysis</h3>
-                <p>
-                    AI-powered welding defect detection system that analyzes weld quality and identifies defects using computer vision and machine learning techniques.
-                </p>
+                <div class="theory">
+                    <h4>Computer Vision Based Defect Detection</h4>
+                    <p>
+                        This defect analysis system employs advanced <strong>computer vision techniques</strong> combined with <strong>deep learning</strong> to automatically detect and classify welding defects. The system utilizes <strong>Convolutional Neural Networks (CNNs)</strong> trained on large datasets of welded samples to identify various defect types.
+                    </p>
+                    <h4>Technique: Semantic Segmentation & Classification</h4>
+                    <p>
+                        The detection pipeline consists of two primary stages:
+                    </p>
+                    <ul>
+                        <li><strong>Semantic Segmentation:</strong> Using encoder-decoder CNN architectures (such as U-Net or FCN), the model performs pixel-wise classification to precisely locate defect regions in weld images. This technique segments the image into different regions: good weld areas, defective areas, and background.</li>
+                        <li><strong>Defect Classification:</strong> Once defects are segmented, a classification network (ResNet, VGG, or custom CNN) categorizes the defect type and severity. The model outputs confidence scores indicating the likelihood of good vs. bad welds.</li>
+                    </ul>
+                    <h4>CNN Architecture Overview</h4>
+                    <p>
+                        The system employs multi-layer convolutional neural networks that learn hierarchical features:
+                    </p>
+                    <ul>
+                        <li><strong>Convolutional Layers:</strong> Extract spatial features like edges, textures, and patterns from weld images</li>
+                        <li><strong>Pooling Layers:</strong> Reduce spatial dimensions while retaining important features</li>
+                        <li><strong>Fully Connected Layers:</strong> Perform final classification based on extracted features</li>
+                        <li><strong>Activation Functions:</strong> ReLU, Sigmoid, or Softmax for non-linear transformations and probability outputs</li>
+                    </ul>
+                    <h4>Training & Performance</h4>
+                    <p>
+                        The model is trained using supervised learning on annotated weld images with labels indicating defect presence and type. Data augmentation techniques (rotation, scaling, brightness adjustment) improve model robustness. The trained model achieves high accuracy in detecting various defects including porosity, cracks, incomplete fusion, undercut, and spatter.
+                    </p>
+
+                    <h4>CNN Architecture Visualizations</h4>
+                    <div class="cnn-diagrams" style="margin: 20px 0;">
+                        <div style="margin-bottom: 20px;">
+                            <h5 style="color: #4CAF50;">U-Net Architecture (Semantic Segmentation)</h5>
+                            <img src="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/u-net-architecture.png"
+                                 alt="U-Net Architecture Diagram"
+                                 style="max-width: 100%; height: auto; border: 2px solid #ddd; border-radius: 8px; margin: 10px 0;"
+                                 onclick="openModal(this)">
+                            <p style="font-size: 14px; color: #666;">U-Net encoder-decoder architecture with skip connections for precise pixel-level segmentation</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <h5 style="color: #4CAF50;">CNN Classification Pipeline</h5>
+                            <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 12px;">
+Input Image → [Conv + ReLU + Pool] → [Conv + ReLU + Pool] → [Conv + ReLU + Pool]
+           → Flatten → [FC Layer] → [FC Layer] → Softmax → Classification Output
+
+Typical Architecture Layers:
+- Conv Layer 1: 64 filters (3x3)
+- Conv Layer 2: 128 filters (3x3)
+- Conv Layer 3: 256 filters (3x3)
+- Fully Connected: 512 neurons
+- Output Layer: 2 classes (Good/Bad Weld)
+                            </pre>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <h5 style="color: #4CAF50;">Popular Classification Architectures</h5>
+                            <ul style="font-size: 14px;">
+                                <li><strong>VGG-16/19:</strong> Deep networks with 16-19 layers, using 3x3 convolutions throughout</li>
+                                <li><strong>ResNet-50/101:</strong> Very deep networks (50-101 layers) with residual skip connections to prevent vanishing gradients</li>
+                                <li><strong>MobileNet:</strong> Lightweight architecture optimized for real-time defect detection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="graph-container">
                     <div class="graph">
                         <img src="../welding-defect/Screenshot from 2025-11-08 01-10-15.png" alt="Bad Weld Detection - 67%" onclick="openModal(this)">
